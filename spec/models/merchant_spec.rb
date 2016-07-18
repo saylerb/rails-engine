@@ -7,10 +7,14 @@ RSpec.describe Merchant, type: :model do
   it "has a valid factory" do
     expect(merchant_instance).to be_valid
     expect(merchant_instance).to respond_to(:name)
+    expect(merchant_instance).to respond_to(:created_at)
+    expect(merchant_instance).to respond_to(:updated_at)
   end
 
   describe "validates attributes" do
     it { expect(merchant_instance).to validate_presence_of(:name) }
+    it { expect(merchant_instance).to validate_presence_of(:created_at) }
+    it { expect(merchant_instance).to validate_presence_of(:updated_at) }
   end
 
 end
