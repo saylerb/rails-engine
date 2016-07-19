@@ -7,6 +7,8 @@ Rails.application.routes.draw do
       resources :merchants, only: [:index, :show]
 
       get '/customers/random', to: "customers#random"
+      get '/customers/find_all', to: "customers#find_all"
+      get '/customers/find', to: "customers#find"
       resources :customers, only: [:index, :show]
     end
   end
