@@ -8,7 +8,7 @@ RSpec.describe "Merchant record endpoint" do
   let!(:merchant4) { create(:merchant) }
 
   it "returns the information for a single merchant" do
-    get "/api/v1/merchants.json"
+    get "/api/v1/merchants"
 
     data = JSON.parse(response.body, symbolize_names: :true )
 
@@ -29,7 +29,7 @@ RSpec.describe "Merchant record endpoint" do
   end
 
   it "returns the information for a single merchant" do
-    get "/api/v1/merchants/#{merchant1.id}.json"
+    get "/api/v1/merchants/#{merchant1.id}"
 
     data = JSON.parse(response.body, symbolize_names: :true )
 
