@@ -4,5 +4,6 @@ class ApplicationController < ActionController::API
   include ActionController::MimeResponds
 
   self.responder = ApplicationResponder
-  respond_to :html
+
+  respond_to :json
 end
