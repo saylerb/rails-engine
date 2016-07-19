@@ -6,7 +6,8 @@ RSpec.describe "Merchant finder" do
   let!(:merchant2_dup) { create(:merchant, name: merchant2.name) }
 
   it "finds a merchant by name" do
-    get "/api/v1/merchants/find?name=#{merchant1.name}"
+    get "/api/v1/merchants/find", params: { name: merchant1.name }
+
 
     expect(response).to be_success
 
@@ -17,7 +18,8 @@ RSpec.describe "Merchant finder" do
   end
 
   it "finds a merchant by id" do
-    get "/api/v1/merchants/find?id=#{merchant2.id}"
+
+    get "/api/v1/merchants/find", params: { id: merchant2.id }
 
     expect(response).to be_success
 
@@ -29,7 +31,7 @@ RSpec.describe "Merchant finder" do
 
   it "finds all merchants by name" do
     
-    get "/api/v1/merchants/find_all?name=#{merchant2.name}"
+    get "/api/v1/merchants/find_all", params: { name: merchant2.name } 
 
     expect(response).to be_success
 
