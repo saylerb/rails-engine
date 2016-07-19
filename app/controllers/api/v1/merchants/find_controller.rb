@@ -1,6 +1,4 @@
 class Api::V1::Merchants::FindController < ApplicationController
-  respond_to :json
-
   def show
    respond_with Merchant.where(merchant_params).take
   end

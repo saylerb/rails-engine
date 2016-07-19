@@ -34,6 +34,7 @@ RSpec.describe "Merchant record endpoint" do
     data = JSON.parse(response.body, symbolize_names: :true )
 
     expect(response).to be_success
+
     expect(data.length).to eq(4)
    
     expect(data[:id]).to eq(merchant1.id) 
@@ -42,4 +43,17 @@ RSpec.describe "Merchant record endpoint" do
     expect(data[:updated_at]).to eq('2012-03-27T14:53:59.000Z') 
   end
 
+  it "returns a random merchant" do
+    get "/api/v1/merchants/random"
+    
+    expect(response).to be_success
+
+    data = JSON.parse(response.body, symbolize_names: :true )
+
+    expect(data).to be_kind_of(Hash)
+    expect(data.length).to eq(4)
+    expect(data[:id]).to be_between(merchant1.id, merchant4.id).inclusive
+    expect(data[:created_at]).to eq('2012-03-27T14:53:59.000Z') 
+    expect(data[:updated_at]).to eq('2012-03-27T14:53:59.000Z') 
+  end
 end
