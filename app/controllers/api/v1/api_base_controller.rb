@@ -12,7 +12,12 @@ class Api::V1::ApiBaseController < ApplicationController
   end
 
   def find
-    respond_with model.find_by(model_params)
+    if model_params[:unit_price]
+      unit_price_integer = (BigDecimal(model_params[:unit_price])*100).to_i
+      respond_with model.find_by(unit_price: unit_price_integer)
+    else
+      respond_with model.find_by(model_params)
+    end
   end
   
   def find_all
