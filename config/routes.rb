@@ -1,10 +1,22 @@
 Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
-      get '/merchants/random', to: "merchants/random#show"
-      get '/merchants/find_all', to: "merchants/find#index"
-      get '/merchants/find', to: "merchants/find#show"
-      resources :merchants, only: [:index, :show]
+
+      resources :merchants, only: [:index, :show] do
+        collection do
+          get 'random', to: 'merchants/random#show'
+          get 'find_all', to: 'merchants/find#index'
+          get 'find', to: 'merchants/find#show'
+        end
+      end
+
+      resources :customers, only: [:index, :show] do
+        collection do
+          get 'random'
+          get 'find_all'
+          get 'find'
+        end
+      end
     end
   end
 end
