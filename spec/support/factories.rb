@@ -6,6 +6,26 @@ FactoryGirl.define do
     name { generate(:merchant_name) }
     created_at '2012-03-27 14:53:59 UTC'
     updated_at '2012-03-27 14:53:59 UTC'
+
+    factory :merchant_with_items do
+      transient do
+        item_count 3
+      end
+
+      after(:create) do |merchant, evaluator|
+        create_list(:item, evaluator.item_count, merchant: merchant)
+      end
+    end
+
+    factory :merchant_with_invoices do
+      transient do
+        invoice_count 3
+      end
+
+      after(:create) do |merchant, evaluator|
+        create_list(:invoice, evaluator.invoice_count, merchant: merchant)
+      end
+    end
   end
 
   factory :customer do

@@ -10,9 +10,10 @@ RSpec.describe "Merchant record endpoint" do
   it "returns the information for a single merchant" do
     get "/api/v1/merchants"
 
+    expect(response).to be_success
+
     data = JSON.parse(response.body, symbolize_names: :true )
 
-    expect(response).to be_success
     expect(data.length).to eq(4)
 
     expect(data.first.length).to eq(4)

@@ -7,6 +7,8 @@ Rails.application.routes.draw do
           get 'random', to: 'merchants/random#show'
           get 'find_all', to: 'merchants/find#index'
           get 'find', to: 'merchants/find#show'
+          get '/:id/items', to: 'merchants#items'
+          get '/:id/invoices', to: 'merchants#invoices'
         end
       end
 
