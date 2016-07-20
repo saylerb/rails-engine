@@ -37,7 +37,7 @@ end
 
 module Load
   def self.csv(file_name)
-    puts "Importing #{file_name.capitalize}"
+    puts "Importing #{file_name.capitalize}..."
     model = file_name.classify.constantize
 
     CSV.foreach("./db/data/#{file_name}.csv", headers: true) do |row|
