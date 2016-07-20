@@ -41,6 +41,14 @@ Rails.application.routes.draw do
            get 'find'
          end
       end
+
+      resources :transactions, only: [:index, :show] do
+        collection do
+           get 'random'
+           get 'find_all'
+           get 'find'
+         end
+      end
     end
   end
 end
