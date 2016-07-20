@@ -25,5 +25,6 @@ RSpec.describe Invoice, type: :model do
     it { expect(invoice_instance).to belong_to(:merchant) }
     it { expect(invoice_instance).to have_many(:transactions) }
     it { expect(invoice_instance).to have_many(:invoice_items) }
+    it { expect(invoice_instance).to have_many(:items) }
   end
 end
