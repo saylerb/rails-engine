@@ -1,8 +1,6 @@
 FactoryGirl.define do
 
-  sequence :merchant_name do |n|
-    "Merchant-#{n}"
-  end
+  sequence(:merchant_name) { |n| "Merchant name #{n}" }
 
   factory :merchant do
     name { generate(:merchant_name) }
@@ -27,4 +25,18 @@ FactoryGirl.define do
     created_at '2012-03-27 14:53:59 UTC'
     updated_at '2012-03-27 14:53:59 UTC'
   end
+
+  sequence(:item_name) { |n| "Item name #{n}" }
+  sequence(:description) { |n| "Description #{n}" }
+  sequence(:unit_price) { |n| 10 + n }
+
+  factory :item do
+    merchant
+    name { generate(:item_name) }
+    description
+    unit_price
+    created_at '2012-03-27 14:53:59 UTC'
+    updated_at '2012-03-27 14:53:59 UTC'
+  end
+
 end
