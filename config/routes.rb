@@ -60,6 +60,10 @@ Rails.application.routes.draw do
            get 'find_all'
            get 'find'
          end
+
+        member do
+          get 'invoice'
+        end
       end
     end
   end
