@@ -44,6 +44,26 @@ FactoryGirl.define do
 
     created_at '2012-03-27 14:53:59 UTC'
     updated_at '2012-03-27 14:53:59 UTC'
+
+    factory :customer_with_invoices_and_transactions do
+      transient do
+        invoice_count 3
+      end
+
+      after(:create) do |customer, evaluator|
+        create_list(:invoice_with_transactions, evaluator.invoice_count, customer: customer)
+      end
+
+      #factory :customer_with_transactions do
+      #  transient do
+      #    transactions_count 3
+      #  end
+      #  
+      #  after(:create) do |invoice, evaluator|   
+      #    create_list(:transaction, evaluator.transactions_count, invoice: invoice)   
+      #  end
+      #end
+    end
   end
 
   sequence(:item_name) { |n| "Item name #{n}" }
@@ -65,6 +85,16 @@ FactoryGirl.define do
     status "active"
     created_at '2012-03-27 14:53:59 UTC'
     updated_at '2012-03-27 14:53:59 UTC'
+    
+    factory :invoice_with_transactions do
+      transient do
+        transactions_count 3
+      end
+      
+      after(:create) do |invoice, evaluator|   
+        create_list(:transaction, evaluator.transactions_count, invoice: invoice)   
+      end
+    end
   end
 
   sequence(:quantity) { |n| n }

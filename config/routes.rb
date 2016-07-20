@@ -18,6 +18,11 @@ Rails.application.routes.draw do
           get 'find_all'
           get 'find'
         end
+
+        member do
+          get 'invoices'
+          get 'transactions'
+        end
       end
 
       resources :items, only: [:index, :show] do
