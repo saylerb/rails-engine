@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Customer, type: :model do
-
   let(:customer_instance) { build(:customer) }
 
   it "has a valid factory" do
@@ -19,4 +18,7 @@ RSpec.describe Customer, type: :model do
     it { expect(customer_instance).to validate_presence_of(:updated_at) }
   end
 
+  describe "has the correct associations" do
+    it { expect(customer_instance).to have_many(:invoices) }
+  end
 end

@@ -22,5 +22,8 @@ RSpec.describe Item, type: :model do
     it { expect(item_instance).to validate_presence_of(:updated_at) }
   end
 
+  describe "has the correct associations" do
+    it { expect(item_instance).to belong_to(:merchant) }
+  end
 
 end

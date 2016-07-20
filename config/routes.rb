@@ -26,6 +26,13 @@ Rails.application.routes.draw do
         end
       end
 
+      resources :invoices, only: [:index, :show] do
+        collection do
+           get 'random'
+           get 'find_all'
+           get 'find'
+         end
+      end
     end
   end
 end
