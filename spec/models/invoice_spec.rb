@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Invoice, type: :model do
-
   let(:invoice_instance) { build(:invoice) }
 
   it "has a valid factory" do
@@ -25,7 +24,4 @@ RSpec.describe Invoice, type: :model do
     it { expect(invoice_instance).to belong_to(:customer) }
     it { expect(invoice_instance).to belong_to(:merchant) }
   end
-
-
-
 end

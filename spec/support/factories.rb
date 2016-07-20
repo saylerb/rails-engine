@@ -58,4 +58,11 @@ FactoryGirl.define do
     updated_at '2012-03-27 14:53:59 UTC'
   end
 
+  factory :transaction do
+    invoice
+    credit_card_number "4354495077693036"
+    result "success"
+    created_at '2012-03-27 14:53:59 UTC'
+    updated_at '2012-03-27 14:53:59 UTC'
+  end
 end
