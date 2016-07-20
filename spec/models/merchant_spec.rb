@@ -17,4 +17,9 @@ RSpec.describe Merchant, type: :model do
     it { expect(merchant_instance).to validate_presence_of(:updated_at) }
   end
 
+  describe "has the correct associations" do
+    it { expect(merchant_instance).to have_many(:items) }
+    it { expect(merchant_instance).to have_many(:invoices) }
+  end
+
 end
