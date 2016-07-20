@@ -23,5 +23,7 @@ RSpec.describe Invoice, type: :model do
   describe "has the correct associations" do
     it { expect(invoice_instance).to belong_to(:customer) }
     it { expect(invoice_instance).to belong_to(:merchant) }
+    it { expect(invoice_instance).to have_many(:transactions) }
+    it { expect(invoice_instance).to have_many(:invoice_items) }
   end
 end
