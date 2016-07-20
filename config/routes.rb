@@ -37,8 +37,8 @@ Rails.application.routes.draw do
       resources :invoice_items, only: [:index, :show] do
         collection do
            get 'random'
-          # get 'find_all'
-          # get 'find'
+           get 'find_all'
+           get 'find'
          end
       end
     end
