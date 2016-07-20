@@ -44,6 +44,14 @@ Rails.application.routes.draw do
            get 'find_all'
            get 'find'
          end
+
+        member do
+          get 'customer'
+          get 'merchant'
+          get 'transactions'
+          get 'invoice_items'
+          get 'items'
+        end
       end
 
       resources :invoice_items, only: [:index, :show] do
