@@ -77,6 +77,16 @@ FactoryGirl.define do
     unit_price
     created_at '2012-03-27 14:53:59 UTC'
     updated_at '2012-03-27 14:53:59 UTC'
+
+    factory :item_with_invoice_items do
+      transient do
+         invoice_item_count 3
+      end
+      
+      after(:create) do |item, evaluator|   
+        create_list(:invoice_item, evaluator.invoice_item_count, item: item)   
+      end
+    end
   end
 
   factory :invoice do
