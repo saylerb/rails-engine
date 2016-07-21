@@ -9,6 +9,11 @@ Rails.application.routes.draw do
           get 'find', to: 'merchants/find#show'
           get '/:id/items', to: 'merchants/items#index'
           get '/:id/invoices', to: 'merchants/invoices#index'
+          get '/:id/revenue', to: 'merchants/revenue#show'
+          get '/most_revenue', to: 'merchants/most_revenue#index'
+          get '/most_items', to: 'merchants/most_items#index'
+          get '/:id/favorite_customer', to: 'merchants/favorite#show'
+          get '/:id/customers_with_pending_invoices', to: 'merchants/pending#index'
         end
       end
 
@@ -22,6 +27,7 @@ Rails.application.routes.draw do
         member do
           get 'invoices'
           get 'transactions'
+          get 'favorite_merchant'
         end
       end
 

@@ -11,4 +11,5 @@ class Invoice < ApplicationRecord
   validates :created_at, presence: :true
   validates :updated_at, presence: :true
 
+  scope :pending, -> { joins(:transactions).where(transactions: { result: 'failed' }) }
 end

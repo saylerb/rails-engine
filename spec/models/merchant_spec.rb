@@ -9,6 +9,9 @@ RSpec.describe Merchant, type: :model do
     expect(merchant_instance).to respond_to(:name)
     expect(merchant_instance).to respond_to(:created_at)
     expect(merchant_instance).to respond_to(:updated_at)
+    expect(merchant_instance).to respond_to(:items)
+    expect(merchant_instance).to respond_to(:invoices)
+    expect(merchant_instance).to respond_to(:transactions)
   end
 
   describe "validates attributes" do
@@ -20,6 +23,7 @@ RSpec.describe Merchant, type: :model do
   describe "has the correct associations" do
     it { expect(merchant_instance).to have_many(:items) }
     it { expect(merchant_instance).to have_many(:invoices) }
+    it { expect(merchant_instance).to have_many(:transactions) }
   end
 
 end
