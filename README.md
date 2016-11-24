@@ -24,6 +24,9 @@ Run the test suite by with `rspec`. To run the spec harness, clone down the repo
 
 
 ## API Endpoints
+
+Below is a list of the API endpoints available.
+
 #### Merchants
 ###### Collection
   1. `GET /api/v1/merchants/random`
