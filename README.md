@@ -1,5 +1,8 @@
 ## Rails Engine
 
+* Ruby version: 2.3.0
+* System dependencies: Rails 5.0
+
 ### Description
 
 Rails engine is a project where we practiced using advanced ActiveRecord to serve up an API using data from Etsy.
@@ -8,9 +11,7 @@ Rails engine is a project where we practiced using advanced ActiveRecord to serv
 
 ### Installation
 
-* Ruby version: 2.3.0
-* System dependencies: Rails 5.0
-* Installation
+Run the commands below to install the application locally:
 
 ``` bash
 git clone https://github.com/saylerb/rails-engine.git
